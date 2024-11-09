@@ -19,18 +19,31 @@ for (const file of files) {
   console.log("Running for", file);
   let ext = file.split(".")[file.split(".").length - 1];
   //   console.log("Extension of file is", ext);
-  if (ext != "js" && ext != "json" && file.split(".").length > 1) {
-    if (fsx.existsSync(path.join(basepath, ext))) {
+
+  const folderPath = path.join(basepath, ext + "_files");
+
+  if (
+    ext != "js" &&
+    ext != "json" &&
+    ext != "git" &&
+    ext != "gitignore" &&
+    file.split(".").length > 1
+  ) {
+    if (fsx.existsSync(folderPath)) {
       //Moving existing files in folder
-      console.log("The folder for ", ext, "extension is already exists");
-      console.log("Moving", file, "in", ext, "folder.");
-      fs.rename(path.join(basepath, file), path.join(basepath, ext, file));
+      console.log(
+        "The folder for ",
+        ext,
+        "extension is already exists. Named as" + folderPath
+      );
+      console.log("Moving", file, "in", folderPath);
+      fs.rename(path.join(basepath, file), path.join(folderPath, file));
     } else {
       console.log("The folder for", ext, "is not exist!!");
-      console.log("Creating", ext, "folder....");
-      fs.mkdir(ext);
-      console.log("Moving", file, "in", ext, "folder.");
-      fs.rename(path.join(basepath, file), path.join(basepath, ext, file));
+      console.log("Creating", folderPath, "folder....");
+      fs.mkdir(folderPath);
+      console.log("Moving", file, "in", folderPath);
+      fs.rename(path.join(basepath, file), path.join(folderPath, file));
     }
   }
 }
