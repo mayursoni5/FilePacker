@@ -6,7 +6,7 @@ This is a simple **File Packer** project written in Node.js that organizes files
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
+- [How to Use](#how-to-Use)
 - [How It Works](#how-it-works)
 - [License](#license)
 
