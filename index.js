@@ -27,6 +27,7 @@ for (const file of files) {
     ext != "json" &&
     ext != "git" &&
     ext != "gitignore" &&
+    ext != "md" &&
     file.split(".").length > 1
   ) {
     if (fsx.existsSync(folderPath)) {
