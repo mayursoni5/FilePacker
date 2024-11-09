@@ -20,7 +20,7 @@ for (const file of files) {
   let ext = file.split(".")[file.split(".").length - 1];
   //   console.log("Extension of file is", ext);
 
-  const folderPath = path.join(basepath, ext + "_files");
+  const folderPath = path.join(basepath, ext.toLowerCase() + "_files");
 
   if (
     ext != "js" &&
